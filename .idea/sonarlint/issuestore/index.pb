@@ -1,19 +1,12 @@
 
 D
 public/css/style.css,1\e\1ef0e38ec90181a17549647e1a67072ac5d804da
-A
-package-lock.json,f\a\fa288d1472d29beccb489a676f68739ad365fc47
-@
-views/index.html,d\c\dc2c29db7731129e4bed7ea93afeef5eb2ac3c9a
->
-views/404.html,2\1\21ed9989fe50d03500dbc8cc6abccae267b74ebb
-J
-middleware/errorHandler.js,d\d\ddc8faeac2762e299c124e392af6d564fbd6ba39
-D
-middleware/logger.js,3\a\3ad23c8a375c241a823391bd2f451db125b9febc
->
-routes/root.js,3\a\3a9bab67ef12e0bec69643ef95a450a526a6f4a4
 E
 config/corsOptions.js,4\e\4e20cffbe2b8f15ea75e42a747cadead429316a5
 H
 config/allowedOrigins.js,d\d\dd645ceffa17e8f88c1404e3ca4c0d4f00adff85
+4
+.env,3\c\3c84dcdc6bbe3d7817c49dcdc327b926fea1808a
+:
+
+.gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
