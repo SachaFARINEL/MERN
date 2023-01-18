@@ -55,7 +55,7 @@ const createNewUser = asyncHandler(async (req, res) => {
 // @route PATCH /users
 // @access Private
 const updateUser = asyncHandler(async (req, res) => {
-    const {_id: id, username, roles, active, password} = req.body
+    const {id, username, roles, active, password} = req.body
 
     // Confirm data
     if (!id || !username || !Array.isArray(roles) || !roles.length || typeof active !== 'boolean') {
@@ -95,7 +95,7 @@ const updateUser = asyncHandler(async (req, res) => {
 // @route DELETE /users
 // @access Private
 const deleteUser = asyncHandler(async (req, res) => {
-    const {_id: id} = req.body
+    const {id} = req.body
 
     // Confirm data
     if (!id) {

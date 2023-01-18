@@ -15,13 +15,6 @@ afterAll(async () => {
     await mongoose.connection.close();
 });
 
-describe('Sanity test', () => {
-    test('1 should equal 1', () => {
-        expect(1).toBe(1)
-    })
-})
-
-
 describe("GET /users on empty {collection}", () => {
     it("should return 'No users found'", async () => {
         const res = await request(app).get("/users");
@@ -31,7 +24,7 @@ describe("GET /users on empty {collection}", () => {
 });
 
 describe("POST /users without all fields", () => {
-    it("should create a user", async () => {
+    it("should return 400 'All fields are required'", async () => {
         const res = await request(app).post("/users").send({
             username: "Sacha",
             password: "!Hb12345"
@@ -55,6 +48,19 @@ describe("POST /users", () => {
     });
 });
 
+describe("POST duplicate /users", () => {
+    it("should return 'Duplicate username' error", async () => {
+        const res = await request(app).post("/users").send({
+            username: "Sacha",
+            password: "!Hb12345",
+            roles: ["Employee"]
+        });
+        expect(res.statusCode).toBe(409);
+        expect(res.body.message).toBe("Duplicate username");
+
+    });
+});
+
 describe("GET /users", () => {
     it("should return all users", async () => {
         const res = await request(app).get("/users");
@@ -63,7 +69,7 @@ describe("GET /users", () => {
     });
 });
 
-describe("DELETE /users", () => {
+describe("DELETE /user", () => {
     it("should delete a user", async () => {
         const user = await User.findOne({username: 'Sacha'}).lean().exec()
         const res = await request(app).delete("/users").send({

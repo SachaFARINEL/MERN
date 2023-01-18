@@ -47,6 +47,7 @@ app.use(errorHandler)
 
 mongoose.connection.once('open', () => {
     if (process.env.NODE_ENV !== 'test') {
+        console.log(`On ${process.env.NODE_ENV}`)
         console.log('Connected to MongoDB')
         const server = app.listen(PORT, () => console.log(`Server running on port ${PORT}`))
     }

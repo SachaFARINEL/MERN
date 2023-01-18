@@ -58,7 +58,7 @@ const createNewNote = asyncHandler(async (req, res) => {
 // @route PATCH /notes
 // @access Private
 const updateNote = asyncHandler(async (req, res) => {
-    const {_id: id, user, title, text, completed} = req.body
+    const {id, user, title, text, completed} = req.body
 
     // Confirm data
     if (!id || !user || !title || !text || typeof completed !== 'boolean') {
@@ -94,7 +94,7 @@ const updateNote = asyncHandler(async (req, res) => {
 // @route DELETE /notes
 // @access Private
 const deleteNote = asyncHandler(async (req, res) => {
-    const {_id: id} = req.body
+    const {id} = req.body
 
     // Confirm data
     if (!id) {
